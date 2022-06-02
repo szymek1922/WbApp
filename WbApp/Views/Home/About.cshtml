@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{ 
+   
+        ViewData["Title"] = "Wyswietl logi";
+    string[] TableGeaders = new string[] { "Data", "Action" };
+    
+
+
+
+
+<div class="table">
+    <table>
+        <thead>
+            <tr>
+                @{
+                    foreach (var head in TableGeaders)
+                    {
+                        <th>
+                            @head
+                        </th>
+                    }
+                }
+
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+            @{
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Action </td>
+                            <td>@item.Date </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+                }
